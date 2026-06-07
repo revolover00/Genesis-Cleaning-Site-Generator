@@ -1,0 +1,6 @@
+{
+  "name": "Genesis Cleaning Service LLC",
+  "description": "Earth-friendly residential and commercial cleaning services in Casa Grande, AZ.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

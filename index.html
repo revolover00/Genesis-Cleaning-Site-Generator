@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genesis Cleaning Service LLC | Casa Grande, AZ</title>
+  
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Styling variables corresponding precisely to requested palette */
+    :root {
+      --primary-bg: #1a2e1a;          /* deep forest green */
+      --secondary-bg: #2d4a2d;        /* medium forest green */
+      --accent: #4a7c4a;              /* muted green banner & default btn */
+      --text-primary: #e8dcc8;        /* warm sand / cream */
+      --text-secondary: #c4a882;      /* golden sand */
+      --card-bg: #243824;             /* dark green cards */
+      --hover-accent: #5a9a5a;        /* lighter green toggle */
+      --font-serif: "DM Serif Display", serif;
+      --font-sans: "Inter", sans-serif;
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset and base rules */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--primary-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--primary-bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--secondary-bg);
+      border-radius: 5px;
+      border: 2px solid var(--primary-bg);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-secondary);
+    }
+
+    /* Layout Utility & Spacing */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-alt {
+      background-color: var(--secondary-bg);
+    }
+
+    /* Typography Hierarchy */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header {
+      margin-bottom: 4rem;
+      max-width: 700px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 60px;
+      height: 3px;
+      background-color: var(--text-secondary);
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 2rem;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--text-primary);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--hover-accent);
+      border-color: var(--hover-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(90, 154, 90, 0.3);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid var(--text-secondary);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(196, 168, 130, 0.1);
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Sticky Navigation Bar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition);
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+    }
+
+    header.scrolled {
+      background-color: rgba(26, 46, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(196, 168, 130, 0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    header .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo-link {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .logo-main {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--text-primary);
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-main svg {
+      color: var(--text-secondary);
+    }
+
+    .logo-sub {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 2px;
+    }
+
+    /* Nav Links on Desktop */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--text-secondary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile Hamburger Menu icon */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .mobile-menu-btn span {
+      width: 100%;
+      height: 2.5px;
+      background-color: var(--text-primary);
+      border-radius: 10px;
+      transition: var(--transition);
+    }
+
+    /* Floating layout for Mobile Navigation Drawer */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: var(--primary-bg);
+      border-left: 2px solid var(--text-secondary);
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+      gap: 2rem;
+      transition: var(--transition);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    /* Dim background when mobile drawer is open */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 1020;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Hero Section with Diagonal Overlay and Repeating CSS Dot Pattern */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 6px;
+      /* Diagonal linear gradients and sub-opacity CSS dot pattern in sand */
+      background: 
+        linear-gradient(135deg, rgba(26, 46, 26, 0.96) 20%, rgba(45, 74, 45, 0.88) 100%),
+        radial-gradient(rgba(196, 168, 130, 0.12) 1.5px, transparent 1.5px);
+      background-size: auto, 24px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle Animated Glowing sparkle/leaf objects in Hero Background */
+    .floating-sparkle {
+      position: absolute;
+      color: rgba(196, 168, 130, 0.08);
+      pointer-events: none;
+      animation: floatBreath 12s infinite ease-in-out;
+    }
+
+    @keyframes floatBreath {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translateY(-20px) rotate(15deg) scale(1.1);
+      }
+    }
+
+    .hero-content {
+      max-width: 820px;
+      z-index: 2;
+    }
+
+    .hero-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(196, 168, 130, 0.1);
+      border: 1px solid rgba(196, 168, 130, 0.25);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-rating-text {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .hero-stars {
+      display: flex;
+      color: var(--text-secondary);
+    }
+
+    .hero-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .hero-title {
+      font-size: 4.2rem;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.35rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      max-width: 650px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Why Choose Us Cards Grid */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .why-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(196, 168, 130, 0.08);
+      padding: 2.5rem 2rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--text-secondary);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .why-icon-box {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(196, 168, 130, 0.08);
+      border-radius: 4px;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .why-card:hover .why-icon-box {
+      background-color: var(--text-secondary);
+      color: var(--primary-bg);
+    }
+
+    .why-card-title {
+      font-size: 1.4rem;
+      color: var(--text-primary);
+    }
+
+    .why-card-desc {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      opacity: 0.85;
+    }
+
+    /* Services Grid Section - 8 cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--text-secondary);
+      border-top: 1px solid rgba(196, 168, 130, 0.05);
+      border-right: 1px solid rgba(196, 168, 130, 0.05);
+      border-bottom: 1px solid rgba(196, 168, 130, 0.05);
+      padding: 2.5rem;
+      border-radius: 0 4px 4px 0;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      border-top-color: rgba(196, 168, 130, 0.2);
+      border-right-color: rgba(196, 168, 130, 0.2);
+      border-bottom-color: rgba(196, 168, 130, 0.2);
+    }
+
+    .service-icon {
+      color: var(--text-secondary);
+      width: 32px;
+      height: 32px;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-title {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .service-desc {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    /* How It Works - 3 step horizontal process */
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .step-card {
+      background-color: var(--card-bg);
+      padding: 3rem 2.5rem;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(196, 168, 130, 0.05);
+      transition: var(--transition);
+    }
+
+    .step-card:hover {
+      border-color: rgba(196, 168, 130, 0.15);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Translucent golden sand step counter positioned absolutely of large proportions */
+    .step-number {
+      position: absolute;
+      right: 15px;
+      bottom: -10px;
+      font-family: var(--font-serif);
+      font-size: 7.5rem;
+      color: rgba(196, 168, 130, 0.08);
+      font-weight: bold;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .step-title {
+      font-size: 1.45rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+    }
+
+    .step-desc {
+      font-size: 1rem;
+      color: var(--text-primary);
+      opacity: 0.9;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Testimonials Google Reviews Section */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(196, 168, 130, 0.06);
+      padding: 2.5rem 2rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .review-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196, 168, 130, 0.2);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stars-block {
+      color: var(--text-secondary);
+      display: flex;
+      gap: 2px;
+    }
+
+    .stars-block svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .google-badge {
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      color: var(--text-secondary);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background-color: rgba(196, 168, 130, 0.07);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    .review-text {
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .initial-avatar {
+      width: 44px;
+      height: 44px;
+      background-color: var(--secondary-bg);
+      border: 1px solid var(--text-secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .verified-customer {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* Hours & Location split component */
+    .hours-location-split {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid rgba(196, 168, 130, 0.15);
+    }
+
+    .hours-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .hours-table td {
+      padding: 1.2rem 0;
+      font-size: 1.1rem;
+    }
+
+    .hours-day {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .hours-time {
+      text-align: right;
+      color: var(--text-secondary);
+    }
+
+    .hours-table tr.closed .hours-day {
+      opacity: 0.65;
+    }
+
+    .hours-table tr.closed .hours-time {
+      color: #9c8466;
+      font-style: italic;
+    }
+
+    .map-frame-wrapper {
+      border: 1px solid rgba(196, 168, 130, 0.15);
+      padding: 0.75rem;
+      background-color: var(--card-bg);
+      border-radius: 6px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .map-frame-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border-radius: 4px;
+    }
+
+    /* Large Green Contact / Call to Action Section Banner with Phone/Email details */
+    .contact-cta {
+      background-color: var(--secondary-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 10% 20%, rgba(74, 124, 74, 0.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      grid-template-columns: 1.2fr 1fr;
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .cta-info h2 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .cta-info p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 550px;
+    }
+
+    .contacts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-link-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 500;
+      transition: var(--transition);
+      width: fit-content;
+    }
+
+    .contact-link-item svg {
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .contact-link-item:hover {
+      color: var(--text-secondary);
+      transform: translateX(5px);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background-color: var(--card-bg);
+      padding: 3rem;
+      border-radius: 6px;
+      border: 1px solid rgba(196, 168, 130, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-actions-title {
+      font-size: 1.6rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-actions p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+
+    .cta-actions .btn {
+      width: 100%;
+      padding: 1.2rem;
+      font-size: 1.1rem;
+    }
+
+    /* Footer structure with specific copyright requirements */
+    footer {
+      background-color: var(--primary-bg);
+      border-top: 1px solid rgba(196, 168, 130, 0.15);
+      padding: 5rem 0 3rem;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .footer-brand .logo-main {
+      font-size: 1.8rem;
+    }
+
+    .footer-desc {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      max-width: 320px;
+    }
+
+    .footer-title {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: var(--transition);
+      opacity: 0.85;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-secondary);
+      opacity: 1;
+      padding-left: 4px;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      background-color: var(--card-bg);
+      border: 1px solid rgba(196, 168, 130, 0.15);
+      border-radius: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      color: var(--primary-bg);
+      background-color: var(--text-secondary);
+      border-color: var(--text-secondary);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(196, 168, 130, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Responsiveness Rules for Mobile First */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3.4rem;
+      }
+      .hours-location-split {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .cta-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .cta-actions {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 4.5rem 0;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      /* Animated Hamburger lines to active state */
+      .mobile-menu-btn.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      .mobile-menu-btn.open span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-15px);
+      }
+      .mobile-menu-btn.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      .hero-title {
+        font-size: 2.6rem;
+      }
+      .hero-tagline {
+        font-size: 1.15rem;
+      }
+      .section-title {
+        font-size: 2.1rem;
+      }
+      .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    /* Scroll Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered load delays */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.25s; }
+    .reveal-delay-3 { transition-delay: 0.4s; }
+    .reveal-delay-4 { transition-delay: 0.55s; }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay background for Mobile Nav -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Mobile Drawer Menu -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#home" class="nav-link" style="font-size: 1.4rem;">Home</a>
+    <a href="#about" class="nav-link" style="font-size: 1.4rem;">Why Choose Us</a>
+    <a href="#services" class="nav-link" style="font-size: 1.4rem;">Services</a>
+    <a href="#how-it-works" class="nav-link" style="font-size: 1.4rem;">How It Works</a>
+    <a href="#reviews" class="nav-link" style="font-size: 1.4rem;">Reviews</a>
+    <a href="#hours" class="nav-link" style="font-size: 1.4rem;">Hours & Location</a>
+    <a href="tel:5205602972" class="btn btn-primary" style="margin-top: 1.5rem;">Call (520) 560-2972</a>
+  </nav>
+
+  <!-- Sticky Header & Nav -->
+  <header>
+    <div class="container nav-container">
+      <a href="#home" class="logo-link nav-link">
+        <div class="logo-main">
+          <!-- Sparkle Logo Symbol -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1.5a1 1 0 0 0-1 1A9.5 9.5 0 0 1 1.5 11a1 1 0 0 0 0 2A9.5 9.5 0 0 1 11 22.5a1 1 0 0 0 2 0 9.5 9.5 0 0 1 9.5-9.5 1 1 0 0 0 0-2A9.5 9.5 0 0 1 13 2.5a1 1 0 0 0-1-1Z"/>
+          </svg>
+          Genesis
+        </div>
+        <div class="logo-sub">Cleaning Service LLC</div>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="nav-links-wrapper">
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">Why Choose Us</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#hours" class="nav-link">Hours</a></li>
+        </ul>
+        <a href="tel:5205602972" class="btn btn-outline nav-menu" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">
+          (520) 560-2972
+        </a>
+      </div>
+
+      <!-- Hamburger toggle button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <!-- Floating Background Leaf Decorative icons (pure CSS driven) -->
+    <svg class="floating-sparkle" style="top: 15%; left: 10%; width: 35px; height: 35px;" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 1.5a1 1 0 0 0-1 1A9.5 9.5 0 0 1 1.5 11a1 1 0 0 0 0 2A9.5 9.5 0 0 1 11 22.5a1 1 0 0 0 2 0 9.5 9.5 0 0 1 9.5-9.5 1 1 0 0 0 0-2A9.5 9.5 0 0 1 13 2.5a1 1 0 0 0-1-1Z"/>
+    </svg>
+    <svg class="floating-sparkle" style="bottom: 20%; right: 12%; width: 45px; height: 45px; animation-delay: 2s;" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 1.5a1 1 0 0 0-1 1A9.5 9.5 0 0 1 1.5 11a1 1 0 0 0 0 2A9.5 9.5 0 0 1 11 22.5a1 1 0 0 0 2 0 9.5 9.5 0 0 1 9.5-9.5 1 1 0 0 0 0-2A9.5 9.5 0 0 1 13 2.5a1 1 0 0 0-1-1Z"/>
+    </svg>
+    <svg class="floating-sparkle" style="top: 25%; right: 20%; width: 25px; height: 25px; animation-delay: 5s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2Zm0 0v-5m-3 2 1.5-1.5"/>
+    </svg>
+
+    <div class="container animate-faded">
+      <div class="hero-content">
+        <div class="hero-rating">
+          <div class="hero-stars">
+            <!-- 5 Filled Stars for visual proof -->
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24" style="color: rgba(196,168,130,0.4);"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <span class="hero-rating-text">4.5/5 Rating (8 Google Reviews)</span>
+        </div>
+        
+        <h1 class="hero-title">Genesis Cleaning Service LLC</h1>
+        <p class="hero-tagline">"We Do All The Dirty Work — So You Don't Have To"</p>
+        
+        <div class="hero-ctas">
+          <a href="tel:5205602972" class="btn btn-primary">
+            <!-- phone icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Get a Free Quote
+          </a>
+          <a href="#services" class="btn btn-outline cta-smooth">Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="about" class="section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="section-subtitle">Dedicated to Pristine Perfection</div>
+      </div>
+
+      <div class="why-grid">
+        <!-- Card 1 -->
+        <div class="why-card">
+          <div class="why-icon-box">
+            <!-- Heart in hand house icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">Family-Owned</h3>
+          <p class="why-card-desc">With friendly service and hard-working family principles, we treat your home or office with the utmost care and respect.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="why-card">
+          <div class="why-icon-box">
+            <!-- Sparkles details icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M11 8v6M8 11h6"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">Detail-Oriented</h3>
+          <p class="why-card-desc">We clean top to bottom, moving furniture to sanitize every inch. No dust bunny is left behind under our watchful eye.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="why-card">
+          <div class="why-icon-box">
+            <!-- Residential & Commercial combo building icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="10" width="8" height="12" rx="1"/><rect x="12" y="2" width="10" height="20" rx="1"/><path d="M6 14h.01M6 18h.01M16 6h.01M16 10h.01M16 14h.01M16 18h.01M20 6h.01M20 10h.01M20 14h.01M20 18h.01"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">Residential & Commercial</h3>
+          <p class="why-card-desc">Equipped to handle both comfortable family homes and busy local commercial workplaces with custom attention to detail.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="why-card">
+          <div class="why-icon-box">
+            <!-- Shield check icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 11l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="why-card-title">Satisfaction Guaranteed</h3>
+          <p class="why-card-desc">We pride ourselves on going above and beyond. If you're not completely satisfied, we'll make it perfect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Services</h2>
+        <div class="section-subtitle">Thorough Cleaning, Top to Bottom</div>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <h3 class="service-title">Residential Cleaning</h3>
+          <p class="service-desc">Regular and detailed cleaning schedules customized to keep your home comfortable, tidy, and clean.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="16"/><line x1="15" y1="22" x2="15" y2="16"/><line x1="9" y1="16" x2="15" y2="16"/><path d="M8 6h2v2H8zm6 0h2v2h-2zm-6 5h2v2H8zm6 0h2v2h-2z"/>
+          </svg>
+          <h3 class="service-title">Commercial Cleaning</h3>
+          <p class="service-desc">Complete janitorial layouts for local businesses and offices, boosting productivity and office healthiness.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><circle cx="12" cy="5" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="17" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+          </svg>
+          <h3 class="service-title">Deep Cleaning</h3>
+          <p class="service-desc">We clean from top to bottom, scrubbing behind gaps, moving furniture, and tackling long-term grime.</p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+          </svg>
+          <h3 class="service-title">Move-In / Move-Out</h3>
+          <p class="service-desc">Ensure seamless property changeovers with absolute sanitation for new tenants or listing preparation.</p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect x="3" y="11" width="18" height="10" rx="2"/>
+          </svg>
+          <h3 class="service-title">Kitchen & Bathroom</h3>
+          <p class="service-desc">Intense anti-bacterial hygiene treatment for food prep spaces and rest rooms to protect family health.</p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M2 12h20M12 12c4 0 4-4 8-4s4 4 4 4M2 12c4 0 4 4 8 4s4-4 4-4"/>
+          </svg>
+          <h3 class="service-title">Floor Cleaning & Mopping</h3>
+          <p class="service-desc">Professional surface sweeps and damp mopping to bring out deep, natural glosses on tile, vinyl, and wood.</p>
+        </div>
+
+        <!-- Service 7 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM6 21a3 3 0 0 1-3-3v-4a3 3 0 0 1 6 0v4a3 3 0 0 1-3 3z"/><path d="M3 6h12M3 10h12"/>
+          </svg>
+          <h3 class="service-title">Dusting & Surface Wiping</h3>
+          <p class="service-desc">Delicate hand wiping of fixtures, blinds, picture frames, and general surfaces to eliminate allergens.</p>
+        </div>
+
+        <!-- Service 8 -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="15" x2="21" y2="15"/>
+          </svg>
+          <h3 class="service-title">Window Cleaning (interior)</h3>
+          <p class="service-desc">Keep your views pristine with streak-free interior glass and sill treatments matching natural AZ daylight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How It Works</h2>
+        <div class="section-subtitle">Simple, Seamless, and Effortless</div>
+      </div>
+
+      <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Call or Message Us</h3>
+          <p class="step-desc">Reach out at (520) 560-2972. Share your cleaning needs, property dimensions, and preferred schedule patterns.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">We Schedule Your Day</h3>
+          <p class="step-desc">We coordinate a precise time window. Our disciplined crew arrives prompt with premium eco-friendly equipment.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Sit Back & Enjoy</h3>
+          <p class="step-desc">Relax or focus on your day while our experienced professionals transform your home top-to-bottom of every speck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Section -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Real Reviews</h2>
+        <div class="section-subtitle">What Our Valued Customers Say</div>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="stars-block">
+              <!-- 5 filled stars -->
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <span class="google-badge">Google</span>
+          </div>
+          <p class="review-text">"Hard workers, did an excellent job. Cleaned whole house top to bottom! Very organized and efficient."</p>
+          <div class="review-user">
+            <div class="initial-avatar">DK</div>
+            <div class="user-info">
+              <span class="reviewer-name">Debra K.</span>
+              <span class="verified-customer">Verified Homeowner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="stars-block">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <span class="google-badge">Google</span>
+          </div>
+          <p class="review-text">"The ladies worked really hard and left my house spotless!! Super job!!"</p>
+          <div class="review-user">
+            <div class="initial-avatar">SD</div>
+            <div class="user-info">
+              <span class="reviewer-name">Susan D.</span>
+              <span class="verified-customer">Verified Homeowner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="stars-block">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <span class="google-badge">Google</span>
+          </div>
+          <p class="review-text">"Very thorough!!!"</p>
+          <div class="review-user">
+            <div class="initial-avatar">DZ</div>
+            <div class="user-info">
+              <span class="reviewer-name">Debbie Z.</span>
+              <span class="verified-customer">Verified Customer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hours & Location Section -->
+  <section id="hours" class="section-alt">
+    <div class="container animate-faded">
+      <div class="section-header">
+        <h2 class="section-title">Hours & Location</h2>
+        <div class="section-subtitle">Serving Casa Grande & Surrounding Areas</div>
+      </div>
+
+      <div class="hours-location-split">
+        <!-- Business Hours column -->
+        <div style="background-color: var(--card-bg); padding: 2.5rem; border-radius: 6px; border: 1px solid rgba(196,168,130,0.12);">
+          <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+            <!-- clock icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Business Hours
+          </h3>
+          <table class="hours-table">
+            <tr>
+              <td class="hours-day">Monday</td>
+              <td class="hours-time">9:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td class="hours-day">Tuesday</td>
+              <td class="hours-time">9:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td class="hours-day">Wednesday</td>
+              <td class="hours-time">9:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td class="hours-day">Thursday</td>
+              <td class="hours-time">9:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td class="hours-day">Friday</td>
+              <td class="hours-time">9:00 AM – 5:00 PM</td>
+            </tr>
+            <tr class="closed">
+              <td class="hours-day">Saturday</td>
+              <td class="hours-time">Closed</td>
+            </tr>
+            <tr class="closed">
+              <td class="hours-day">Sunday</td>
+              <td class="hours-time">Closed</td>
+            </tr>
+          </table>
+          <p style="margin-top: 2rem; font-size: 0.95rem; color: var(--text-secondary); opacity: 0.9; line-height: 1.5;">
+            *Please contact us in advance for custom corporate cleaning demands, which may fall outside standard timings of Arizona.
+          </p>
+        </div>
+
+        <!-- Google Maps container -->
+        <div class="map-frame-wrapper">
+          <iframe 
+            src="https://maps.google.com/maps?q=32.9812507,-111.7834899&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div style="margin-top: 1rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+            <!-- location pin svg -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-secondary); flex-shrink: 0; margin-top: 2px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div>
+              <p style="font-weight: 600; color: var(--text-primary);">Service Office Headquarters</p>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">11161 N Arapaho Dr, Casa Grande, AZ 85122</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Large Green Contact / Call to Action CTA section Banner -->
+  <section class="contact-cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-info">
+          <h2>We're Ready to Clean for You</h2>
+          <p>Get in touch today to schedule a prompt inspection or custom free estimate for your cozy home or commercial establishment in Casa Grande!</p>
+          
+          <div class="contacts-list">
+            <!-- phone -->
+            <a href="tel:5205602972" class="contact-link-item">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              (520) 560-2972
+            </a>
+            <!-- email -->
+            <a href="mailto:veronicaleon110@gmail.com" class="contact-link-item" style="font-size: 1.15rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              veronicaleon110@gmail.com
+            </a>
+            <!-- address pin -->
+            <div style="display: flex; gap: 1rem; align-items: center; color: var(--text-primary); font-size: 1.1rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-secondary);">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              Casa Grande, AZ 85122
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-actions">
+          <span class="cta-actions-title">Call For Fast Estimates</span>
+          <p>No waiting list. We quickly coordinate family cleanings, deep scrubbing, or corporate sanitizing schedules immediately.</p>
+          <a href="tel:5205602972" class="btn btn-primary" style="background-color: var(--text-secondary); color: var(--primary-bg); border-color: var(--text-secondary);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer structure -->
+  <footer>
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-brand">
+          <div class="logo-main" style="color: var(--text-primary); font-family: var(--font-serif); font-size: 1.8rem; display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" style="color: var(--text-secondary);">
+              <path d="M12 1.5a1 1 0 0 0-1 1A9.5 9.5 0 0 1 1.5 11a1 1 0 0 0 0 2A9.5 9.5 0 0 1 11 22.5a1 1 0 0 0 2 0 9.5 9.5 0 0 1 9.5-9.5 1 1 0 0 0 0-2A9.5 9.5 0 0 1 13 2.5a1 1 0 0 0-1-1Z"/>
+            </svg>
+            Genesis
+          </div>
+          <p class="logo-sub" style="margin-top: -10px;">Cleaning Service LLC</p>
+          <p class="footer-desc">Professional eco-friendly residential and commercial cleaning treatments inside Casa Grande area, moving furniture to scrub every single inch.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Why Choose Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#reviews">What Customers Say</a></li>
+            <li><a href="#hours">Hours & Map</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Connect With Us</h4>
+          <p style="font-size: 0.95rem; margin-bottom: 1.2rem; opacity: 0.85;">Follow our Facebook channel for seasonal updates, cleaning guides, and active coupons.</p>
+          <div class="social-row">
+            <a href="https://www.facebook.com/genesiscleaningserviceLLC" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Page">
+              <!-- facebook symbol path -->
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Copyright 2025 Genesis Cleaning Service LLC. All rights reserved.</span>
+        <span>Site by genesisazclean.com | Phone: (520) 560-2972</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Javascript -->
+  <script>
+    // Sticky Header scroll transition
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Hamburger Menu display triggers
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu() {
+      mobileMenuBtn.classList.toggle('open');
+      mobileNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+
+    // Smooth scrolling & menu closing for simple anchor tags
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          e.preventDefault();
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Close mobile menu if open
+            if (mobileNav.classList.contains('active')) {
+              toggleMenu();
+            }
+            
+            const offset = 80; // height of navbar
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Scroll reveal animation implementation
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dynamic addition of reveal classes to keep markup light and pristine
+      document.querySelectorAll('.section-header').forEach(el => {
+        el.classList.add('reveal');
+      });
+
+      const applyStaggerReveal = (gridSelector, cardSelector) => {
+        document.querySelectorAll(gridSelector).forEach(grid => {
+          const cards = grid.querySelectorAll(cardSelector);
+          cards.forEach((card, i) => {
+            card.classList.add('reveal');
+            // Distribute stagger delay classes circularly up to 4
+            const staggerDelay = `reveal-delay-${(i % 4) + 1}`;
+            card.classList.add(staggerDelay);
+          });
+        });
+      };
+
+      // Apply the helper to diverse sections
+      applyStaggerReveal('.why-grid', '.why-card');
+      applyStaggerReveal('.services-grid', '.service-card');
+      applyStaggerReveal('.steps-container', '.step-card');
+      applyStaggerReveal('.reviews-grid', '.review-card');
+
+      // Add to hours, location elements
+      document.querySelectorAll('.hours-location-split > div, .map-frame-wrapper').forEach((el, index) => {
+        el.classList.add('reveal');
+        el.classList.add(`reveal-delay-${(index % 2) + 1}`);
+      });
+
+      // Add to contact elements
+      document.querySelectorAll('.cta-inner > div').forEach((el, index) => {
+        el.classList.add('reveal');
+        el.classList.add(`reveal-delay-${(index % 2) + 1}`);
+      });
+
+      // Define IntersectionObserver
+      const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Animates once for clean scrolling
+          }
+        });
+      };
+
+      const options = {
+        root: null,
+        threshold: 0.05,
+        rootMargin: "0px 0px -50px 0px" // Trigger slightly before showing up fully
+      };
+
+      const observer = new IntersectionObserver(revealCallback, options);
+
+      // We wait 100ms before starting to observe to prevent immediate jumps
+      setTimeout(() => {
+        document.querySelectorAll('.reveal').forEach(el => {
+          observer.observe(el);
+        });
+      }, 100);
+    });
+  </script>
+</body>
+</html>
